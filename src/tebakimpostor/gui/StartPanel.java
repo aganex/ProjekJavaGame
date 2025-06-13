@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package tebakimpostor.gui;
-
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 /**
  *
  * @author Adinata
@@ -13,9 +14,17 @@ public class StartPanel extends javax.swing.JPanel {
     /**
      * Creates new form StartPanel
      */
+    
+    private JPanel container;
+    
     public StartPanel() {
         initComponents();
+ 
     }
+    public void setContainer(JPanel container){
+        this.container = container;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -25,20 +34,51 @@ public class StartPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1 = new javax.swing.JLabel();
+        btnMulai = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 245, 228));
+        setForeground(new java.awt.Color(255, 245, 228));
+        setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Adinata\\Music\\Screenshot 2025-06-13 184910.png")); // NOI18N
+        add(jLabel1, new java.awt.GridBagConstraints());
+
+        btnMulai.setBackground(new java.awt.Color(255, 255, 255));
+        btnMulai.setForeground(new java.awt.Color(0, 0, 0));
+        btnMulai.setText("START");
+        btnMulai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMulaiMouseClicked(evt);
+            }
+        });
+        btnMulai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMulaiActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        add(btnMulai, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMulaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMulaiMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMulaiMouseClicked
+
+    private void btnMulaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMulaiActionPerformed
+        CardLayout cl = (CardLayout) container.getLayout();
+        cl.show(container, "playerSetup");
+    }//GEN-LAST:event_btnMulaiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMulai;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    
 }

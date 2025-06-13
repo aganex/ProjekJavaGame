@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package tebakimpostor.gui;
-
+import javax.swing.JFrame;
+import java.awt.CardLayout;
 /**
  *
  * @author Adinata
@@ -15,6 +16,22 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        //setting size
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setTitle("Tebak Impostor");
+        
+        //card layout 
+        cardPanelContainer.setLayout(new CardLayout());
+        
+        //start panel 
+        StartPanel sp = new StartPanel();
+        sp.setContainer(cardPanelContainer);
+        cardPanelContainer.add(sp, "start");
+
+        
+        //PlayerSetup
+        PlayerSetupPanel psp = new PlayerSetupPanel();
+        cardPanelContainer.add(psp, "playerSetup");
     }
 
     /**
@@ -26,18 +43,14 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        cardPanelContainer = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tebak Impostor");
+
+        cardPanelContainer.setBackground(new java.awt.Color(255, 245, 228));
+        cardPanelContainer.setLayout(new java.awt.CardLayout());
+        getContentPane().add(cardPanelContainer, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +91,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel cardPanelContainer;
     // End of variables declaration//GEN-END:variables
 }
